@@ -1,0 +1,76 @@
+Hello, everyone
+
+Today I would like to tell you about my last project which I was working on for last three months.
+
+It was intended to creating a carport builder where an user is able to adjust all options, for example, a roof shape, its color and a type of side/front walls.
+
+First of all, I want to thank Brad which is on holiday today and Eugen for helping and clarifying on the course of all work.
+
+So... Let's begin
+
+There are three main core parts:
+
+ * a builder's UI
+ * a pricing sheets generator
+ * a server-side renderer based on Blender
+
+The builder was implemented by means of tools hopefully ;) you  know:
+
+ * AngularJS
+ * angular-strap which is a framework making going together both Angular and Twitter Boostrap
+
+> Here show a screenshot of UI
+
+Even in this simple case there were a few interesting challenges:
+
+ * spin directive (two-way binding between ng-model and directive, should mention a Angular service which allows to access ng-model properties)
+ * color selector (as well directive)
+
+The next thing was to create a calculator of the carport price on-the-fly and a generator of pricing sheets for a seller which is accessible anywhere and anytime.
+
+This task was broken down into two parts:
+
+ * calculating the price on the client side
+ * a module which prepares pricing sheets on the seller's side
+
+Here I want to go deeper on the last module. It was choosed the following scheme:
+
+ * a seller opens a master Google Spreadsheet with pricing tables
+ * commits changes to his pricing strategy
+ * then he just needs to select the appropriate menu entry 
+ * gets an email with the JSON files attached that should be uploaded on a server
+ * ???
+ * PROFIT
+
+and the next the most interesting part of this project is a 3D rendering of a carport.
+
+We didn't expect that we would be in charge of the rendering part.
+
+I attempted to adopt several client-side rendering libs in pure javascript. Basically they are based on using a 'canvas' element for outputting the image rendered. Unfortunately they were going nuts in IE8, more precisely, it was vice versa, they were too slow. But IE8 was to be supported. Then you could ask about WebGL. It's a pity, because it's supported only by 70% of all the machines over Internet.
+
+Blender is like 3ds max, but open-source and free (as beer). It's able to start rendering from command line and supports Python scripting. It was a key factor for choosing Blender.
+
+Blender generates amazing stunning images very quick. You have full control over the scene. You can do everything, change everything manully as well as programatically. 
+
+Idyll? 
+
+No. 
+
+1. Any, even a not very complicated scene requires a lot of preparations. You need to be Blender guy or to be willing to become (I mean me:))
+2. Blender was used as a program which is not supposed to be used in such manner.
+
+The renderer consist of two parts:
+
+ * Tornado-based asynchronous server which 
+  
+  * starts a bunch of Blender instances
+  * receives incoming requests
+  * picks a free Blender instance
+  * passes a bunch of arguments to it
+  * waits while an image is being rendered.
+
+ * a very model-specific python script which:
+ 
+  * keeps Blender in memory
+  * applies arguments for scene (roof color or wall type)
+  * Having rendering finished it pings the main server which then reads an image from a hard drive and returns it to a client's browser. 

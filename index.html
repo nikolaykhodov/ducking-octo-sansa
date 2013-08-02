@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Carport builder = Blender + AngularJS + Google Script</title>
+
+  <meta name="description" content="This presentation is on how to unite Google Script, cloud javascript, AngularJS, Tornado and Blender by means of Python" />
+  <meta name="author" content="Nikolay Khodov" />
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+  <link href="css/impress-demo.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+  <div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+
+  <div id="impress">
+
+    <div id="introduction" class="step" data-x="-1500" data-y="-2500">
+      <q>How to go together AngularJS + Python + Google Script + Blender</q>
+    </div>
+
+    <div id="" class="step" data-x="-500" data-y="-2500">
+      <q>
+        <h1 style="font-size: 3em;">Intermezzo</h1>
+
+        <ul>
+          <li>Builder's UI</li>
+          <li>Pricing sheets generator</li>
+          <li>Server-side 3D rendering</li>
+        </ul>
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="500" data-y="-2500">
+      <q>
+        <img src="img/ui.png">
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-2200" data-y="-1000" data-rotate="90" data-scale="1">
+      <q>
+        <pre>
+          ngModel.$render = function() {
+            selectOption(element, ngModel.$viewValue, addCheck);
+          };
+
+          function read() {
+            ngModel.$setViewValue(currentValue);
+          }
+        </pre>
+      </q>
+    </div>
+
+    <!-- TODO: go deeper -->
+    <div id="" class="step" data-x="-1500" data-y="-1500">
+      <q>
+        A master Google Spreadsheet
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-500" data-y="-1500">
+      <q>
+        then he commits changes to the his pricing strategy
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-500" data-y="-1500">
+      <q>
+        select Export menu entry and...
+
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="500" data-y="-1500">
+      <q>
+        gets a bunch of JSON files
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-1500" data-y="0">
+      <q>
+        Client-side rendering? Why not?
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-1400" data-y="-500">
+      <q>
+        Canvas + IE8 = a lack of speed
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="500" data-y="400" data-scale="2">
+      <q>
+        Only 70% of browsers supports WebGL
+      </q>
+    </div>
+
+    <!-- BIG SCALE FACTOR WITH ROTATION -->
+    <div id="" class="step" data-x="500" data-y="-400" data-scale="5">
+      <q>
+        Blender
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="600" data-y="0" data-scale="3" data-rotaion="90">
+      <q>
+        Free, fast and...  amazing stunning
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="1000" data-y="600" data-scale="2" data-rotation="-90">
+      <q>
+        Idyll?
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-1500" data-y="1000" data-rotate="45" data-scale="2">
+      <q>
+        No :(
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-500" data-y="1000">
+      <q>
+        <ul>
+          <li>A lot of preparations</li>
+          <li>Blender was used as a program which is not supposed to be used in such manner.</li>
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-2000" data-y="2000">
+      <q>
+        Tornado-based asynchronous server
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="-1000" data-y="2000" data-rotate="45">
+      <q>
+        <ul>
+          <li>start a bunch of Blender instances</li>
+          <li>processes incoming requests</li>
+          <li>waits while an image is being rendered.</li>
+        </ul>
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="0" data-y="2000" data-rotate="-45">
+      <q>
+        a very model-specific python script
+      </q>
+    </div>
+
+    <div id="" class="step" data-x="1000" data-y="2000">
+      <q>
+        <ul>
+          <li>keeps Blender in memory</li>
+          <li>applies arguments for scene</li>
+          <li>pings the main server when an image is ready</li>
+        </ul>
+      </q>
+    </div>
+
+    <div class="step" data-x="5000" data-y="3000" data-scale="4" data-rotate="45">
+      <q>
+        Cheers! Questions?
+      </q>
+    </div>
+        
+  </div>
+
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+
+<body>
+</html>
